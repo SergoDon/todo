@@ -9,7 +9,7 @@ const App = () => {
   const [todos, handleChangeTodos] = useState([
     { id: uuid(), title: `Todo 1`, isCompleted: false },
     { id: uuid(), title: `Todo 2`, isCompleted: false },
-    { id: uuid(), title: `Todo 3`, isCompleted: false },
+       { id: uuid(), title: `Todo 3`, isCompleted: false },
   ]);
 
   const addNewTodo = (targetTitle) =>
