@@ -1,0 +1,16 @@
+@import "../../../../../styles/index.scss";
+
+.addNewTodo {
+  display: flex;
+  height: 100px;
+  padding: 5px 100px 10px;
+  @include font($font-family, "normal", 30px, 4px, 40px, $black-color);
+
+  border: none;
+  border-bottom: 1px solid $grey-color;
+  box-shadow: 0 1px 9px 5px rgba(0, 0, 0, 0.2);
+
+  &:focus {
+    outline: none;
+  }
+}

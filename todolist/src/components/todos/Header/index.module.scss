@@ -1,0 +1,9 @@
+@import "../../../styles/index.scss";
+
+.title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.15;
+  @include font($font-family, "normal", 100px, 100, 20px, $pink-color);
+}
