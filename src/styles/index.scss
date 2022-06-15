@@ -1,0 +1,14 @@
+@import "./modules/index.scss";
+
+#root {
+  display: flex;
+  justify-content: center;
+  @include full-screen;
+}
+
+.app {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  @include full-screen;
+}
