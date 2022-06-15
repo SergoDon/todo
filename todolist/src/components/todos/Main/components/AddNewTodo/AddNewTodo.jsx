@@ -1,10 +1,10 @@
 import { useState, useContext } from "react";
 import clnm from "./index.module.scss";
-import { AppContext } from "../../../../../App";
+import { TodosContext } from "@containers";
 
 export const AddNewTodo = () => {
   const [targetTitle, setTargetTitle] = useState("");
-  const { addNewTodo } = useContext(AppContext);
+  const { addNewTodo } = useContext(TodosContext);
   const onChange = ({ target: { value } }) => setTargetTitle(value);
 
   const handleClick = ({ key, target: { value } }) => {

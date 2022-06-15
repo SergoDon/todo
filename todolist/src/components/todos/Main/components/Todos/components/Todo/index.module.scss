@@ -1,4 +1,4 @@
-@import "../../../../../../../styles/index.scss";
+@import "@styles";
 
 .conteiner {
   display: flex;
@@ -65,5 +65,21 @@
     text-decoration: line-through;
     border: none;
     @include font($font-family, "normal", 30px, 4px, 40px, $grey-color);
+  }
+}
+.todoTitleInput{
+  display: flex;
+  height: 100px;
+  width: 400px;
+  padding: 5px 65px 10px;
+  @include font($font-family, "normal", 30px, 4px, 40px, $grey-dark-color);
+  
+  border: none;
+  border-bottom: 1px solid $grey-color;
+  box-shadow: inset 2px 2px 2px rgba(0, 0, 0, 0.2), 2px 2px 2px rgba(0, 0, 0, 0.2);
+  cursor: default;
+
+  &:focus {
+    outline: none;
   }
 }
