@@ -25,14 +25,16 @@
     "yup": "^0.32.11"
   },
   "scripts": {
-    "start": "react-app-rewired start",
+    "dev": "react-app-rewired start",
+    "start": "serve -s buil",
     "build": "react-app-rewired build",
     "test": "react-app-rewired test",
-    "eject": "react-app-rewired",
+    "eject": "react-app-rewired eject",
     "prettier": "prettier --write \"**/*.+(js|jsx)\"",
     "stylelint": "stylelint \"**/*.+(scss)\" --custom-syntax postcss-less",
     "lint": "eslint --fix src -c .eslintrc.json --ext js,jsx",
-    "commit-hook": "git add ."
+    "commit-hook": "git add .",
+    "heroku-postbuild": "npm run build"
   },
   "pre-commit": [
     "prettier",
