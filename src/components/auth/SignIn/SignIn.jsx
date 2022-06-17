@@ -1,5 +1,5 @@
 import { Formik, Form, Field, ErrorMessage } from "formik";
-export const Sigin = () => {
+export const SignIn = () => {
   return (
     <div>
       <Formik
