@@ -8,11 +8,12 @@ export const privateRoutes = [
     component: TodosContainer,
     exact: true,
     children: [
-      //   {
-      //     path: `${ROUTES.TODOS}/:id`,
-      //     exact: true,
-      //     children: [],
-      //   },
+      {
+        path: "/:id",
+        component: () => null,
+        exact: true,
+        children: [],
+      },
     ],
   },
 ];

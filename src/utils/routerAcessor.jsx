@@ -1,16 +1,26 @@
-import { Route } from "react-router-dom";
+import { Route, Navigate } from "react-router-dom";
+import { ROUTES } from "@constants";
+
+export const renderRoute = (routes, parentPrefix) => {
+  return routes.map( (route) => {
+    const { component: ReactComponent, children, exact } = route;
+    const computedPass =`${parentPrefix}${route.path}`;
+    const parentRoute = < Route key={computedPass} path={computedPass} exact={exact} element={<ReactComponent />}/>
+  
+    if(children.length){
+     return [parentRoute, ...renderRoute(children, computedPass)];
+    } else {
+      return parentRoute;
+    }
+  }) 
+  
+}
+
 export const routerAcessor = (privetRouter, publicRouter) => {
-  const routes = [];
+  const rootPrefix = "";
+  const routes = renderRoute([...publicRouter, ...privetRouter], rootPrefix);
+  const redirect = <Route key={ROUTES.ALL} path={ROUTES.ALL} element= {<Navigate to={ROUTES.TODOS}/>}/>;
+  
 
-  publicRouter.forEach((publicRoute) => {
-    const { component: ReactComponent, ...rest } = publicRoute;
-    routes.push(<Route key={rest.path} {...rest} element={<ReactComponent />} />);
-  });
-
-  privetRouter.forEach((privetRoute) => {
-    const { component: ReactComponent, ...rest } = privetRoute;
-    routes.push(<Route key={rest.path} {...rest} element={<ReactComponent />} />);
-  });
-
-  return routes;
+  return [...routes, redirect].flat();
 };
