@@ -1,11 +1,11 @@
 import { AddNewTodo, Todos, TodosFilter } from "./components";
 import clnm from "./index.module.scss";
-export const Main = (props) => {
-  const { ...restProps } = props;
+
+export const Main = () => {
   return (
     <div className={clnm.main}>
       <AddNewTodo />
-      <Todos {...restProps} />
+      <Todos />
       <TodosFilter />
     </div>
   );

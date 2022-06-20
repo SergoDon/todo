@@ -1,13 +1,15 @@
 import clnm from "./index.module.scss";
 import classname from "classname";
-import { useState, useContext } from "react";
-import { TodosContext } from "@containers";
+import { useState } from "react";
 
-export const Todo = ({ id, isCompleted, title, removeTodo, selectTodo }) => {
-  const { handleChangeTodo } = useContext(TodosContext);
+export const Todo = ({ id, isCompleted, title }) => {
   const [curentTitle, hendleChangeTitle] = useState(title);
   const [isEdit, hendleEditTodo] = useState(false);
   const toggleEdit = () => hendleEditTodo(!isEdit);
+
+  const handleChangeTodo = () => {};
+  const selectTodo = () => {};
+  const removeTodo = () => {};
 
   const save = ({ key }, isSave = false) => {
     if (key === "Enter" || isSave) {

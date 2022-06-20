@@ -1,14 +1,14 @@
 import clnm from "./index.module.scss";
-import { useContext } from "react";
 import classname from "classname";
-import { TodosContext } from "@containers";
 
 export const TodosFilter = () => {
-  const { filter, removeTodos, setFilter, todoItems } = useContext(TodosContext);
+  const removeTodos = () => {};
+  const setFilter = () => {};
+  const filter = null;
 
   return (
     <div className={clnm.conteiner}>
-      <div>{todoItems()}</div>
+      {/* <div>{todoItems()}</div> */}
       <div className={clnm.filter}>
         <div
           className={classname(clnm.filterItem, {
