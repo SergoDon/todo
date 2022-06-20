@@ -1,10 +1,13 @@
 import { Todo } from ".";
+import { useEffect } from "react";
+import { fetchTodosRequest } from "../../../../../actions";
+import { useSelector, useDispatch } from "react-redux";
 
-export const Todos = ({ todos, removeTodo, selectTodo }) => {
+export const Todos = () => {
   return (
     <div>
       {todos.map((todo) => (
-        <Todo key={todo.id} {...todo} removeTodo={() => removeTodo(todo.id)} selectTodo={selectTodo} />
+        <Todo key={todo.id} {...todo} removeTodo={() => {}} />
       ))}
     </div>
   );
