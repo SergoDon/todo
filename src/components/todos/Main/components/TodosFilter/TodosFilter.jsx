@@ -1,14 +1,20 @@
 import clnm from "./index.module.scss";
 import classname from "classname";
+import { useDispatch } from "react-redux";
+import { itemsTodoRequest } from "../../../../../actions";
 
 export const TodosFilter = () => {
+  const dispatch = useDispatch();
   const removeTodos = () => {};
   const setFilter = () => {};
+  const todoItems = () => {
+    dispatch( itemsTodoRequest("wйцыйц"));
+  }
   const filter = null;
 
   return (
     <div className={clnm.conteiner}>
-      {/* <div>{todoItems()}</div> */}
+       <div>{todoItems()}</div> 
       <div className={clnm.filter}>
         <div
           className={classname(clnm.filterItem, {

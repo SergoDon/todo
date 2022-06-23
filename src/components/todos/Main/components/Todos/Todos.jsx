@@ -2,9 +2,17 @@ import { Todo } from ".";
 import { useEffect } from "react";
 import { fetchTodosRequest } from "../../../../../actions";
 import { useSelector, useDispatch } from "react-redux";
+import { getTodos } from "../../../../../todosSelectors";
 
 export const Todos = () => {
-  const todos = [{ id: 123, title: `Todo 1`, isCompleted: false }];
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(fetchTodosRequest());
+  }, [dispatch]);
+
+  const todos = useSelector(getTodos());
+
   return (
     <div>
       {todos.map((todo) => (

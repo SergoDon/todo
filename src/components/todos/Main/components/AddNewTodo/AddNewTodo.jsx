@@ -1,14 +1,19 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import clnm from "./index.module.scss";
+import { useDispatch } from "react-redux";
+import { addTodoRequest } from "../../../../../actions";
+import { v4 as uuid } from "uuid";
 
 export const AddNewTodo = () => {
+  const dispatch = useDispatch();
   const [targetTitle, setTargetTitle] = useState("");
-  const addNewTodo = () => {};
+
   const onChange = ({ target: { value } }) => setTargetTitle(value);
 
-  const handleClick = ({ key, target: { value } }) => {
+  const handleClick = ({ key }) => {
     if (key === "Enter") {
-      addNewTodo(value);
+      let newTodo = [{ id: uuid(), title: targetTitle, isCompleted: false }];
+      dispatch(addTodoRequest(newTodo));
       setTargetTitle("");
     }
   };

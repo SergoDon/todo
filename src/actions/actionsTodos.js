@@ -11,6 +11,9 @@ import {
   EDIT_TODO_FAILED,
   EDIT_TODO_SUCCESS,
   EDIT_TODO_CLEAR,
+  REMOVE_TODO,
+  SELECT_TODO,
+  ITEMS_TODO,
 } from "../constants";
 
 export const fetchTodosRequest = () => ({ type: FETCH_TODOS_REQUEST });
@@ -27,3 +30,18 @@ export const editTodoRequest = (payload) => ({ type: EDIT_TODO_REQUEST, payload 
 export const editTodoFailed = (payload) => ({ type: EDIT_TODO_FAILED, payload });
 export const editTodoSuccess = (payload) => ({ type: EDIT_TODO_SUCCESS, payload });
 export const editTodoClear = () => ({ type: EDIT_TODO_CLEAR });
+
+export const removeTodoRequest = (payload) => ({ type: REMOVE_TODO.REQUEST, payload });
+export const removeTodoFailed = (payload) => ({ type: REMOVE_TODO.FAILED, payload });
+export const removeTodoSuccess = (payload) => ({ type: REMOVE_TODO.SUCCESS, payload });
+export const removeTodoClear = () => ({ type: REMOVE_TODO.CLEAR });
+
+export const selectTodoRequest = (payload) => ({ type: SELECT_TODO.REQUEST, payload });
+export const selectTodoFailed = (payload) => ({ type: SELECT_TODO.FAILED, payload });
+export const selectTodoSuccess = (payload) => ({ type: SELECT_TODO.SUCCESS, payload });
+export const selectTodoClear = () => ({ type: SELECT_TODO.CLEAR });
+
+export const itemsTodoRequest = (payload) => ({ type: ITEMS_TODO.REQUEST, payload });
+export const itemsTodoFailed = (payload) => ({ type: ITEMS_TODO.FAILED, payload });
+export const itemsTodoSuccess = (payload) => ({ type: ITEMS_TODO.SUCCESS, payload });
+export const itemsTodoClear = () => ({ type: ITEMS_TODO.CLEAR });
