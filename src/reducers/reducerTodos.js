@@ -14,9 +14,11 @@ import {
   REMOVE_TODO,
   SELECT_TODO,
   ITEMS_TODO,
+  REMOVE_TODOS,
+  FILTER_TODOS,
 } from "../constants";
 
-const initialState = { todos: [], error: null, isLoading: false };
+const initialState = { todos: [], error: null, isLoading: false, filter: null };
 
 export const reducerTodos = (state = initialState, action) => {
   const { type, payload } = action; // { id: uuid(), title: `Todo 1`, isCompleted: false }
@@ -28,6 +30,7 @@ export const reducerTodos = (state = initialState, action) => {
     case REMOVE_TODO.REQUEST:
     case SELECT_TODO.REQUEST:
     case ITEMS_TODO.REQUEST:
+    case REMOVE_TODOS.REQUEST:
       return { ...state, isLoading: true };
     case FETCH_TODOS_FAILED:
     case ADD_TODO_FAILED:
@@ -35,6 +38,7 @@ export const reducerTodos = (state = initialState, action) => {
     case REMOVE_TODO.FAILED:
     case SELECT_TODO.FAILED:
     case ITEMS_TODO.FAILED:
+    case REMOVE_TODOS.FAILED:
       return { ...state, isLoading: false, error: payload };
     case FETCH_TODOS_SUCCESS:
       return { ...state, ...commonSuccessState, todos: payload };
@@ -59,15 +63,15 @@ export const reducerTodos = (state = initialState, action) => {
         todos: [...state.todos].map((el) => (el.id === payload.id ? payload : el)),
       };
     case ITEMS_TODO.SUCCESS:
-      console.log("state", { ...state });
+      return {};
+    case REMOVE_TODOS.SUCCESS:
       return {
         ...state,
         commonSuccessState,
-        length:
-          [...state.todos].length < 1
-            ? `${[...state.todos].length} Items right`
-            : `${[...state.todos].length} Item right`,
+        todos: payload.filter((element) => !element.isCompleted),
       };
+    case FILTER_TODOS.SUCCESS:
+      return { ...state, filter: payload };
     case FETCH_TODOS_CLEAR:
     case ADD_TODO_CLEAR:
     case EDIT_TODO_CLEAR:

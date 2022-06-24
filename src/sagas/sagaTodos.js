@@ -21,9 +21,9 @@ import {
   removeTodoFailed,
   selectTodoSuccess,
   selectTodoFailed,
-  itemsTodoSuccess,
-  itemsTodoFailed,
-} from "../actions";
+  removeTodosSuccess,
+  removeTodosFailed,
+} from "@actions";
 
 import { put, takeLatest } from "redux-saga/effects";
 import { v4 as uuid } from "uuid";
@@ -35,6 +35,7 @@ import {
   REMOVE_TODO,
   SELECT_TODO,
   ITEMS_TODO,
+  REMOVE_TODOS,
 } from "../constants";
 
 function* fetchTodosWorker() {
@@ -83,11 +84,11 @@ function* selectTodoWorker({ payload }) {
   }
 }
 
-function* itemsTodoWorker() {
+function* removeTodosWorker({ payload }) {
   try {
-    yield put(itemsTodoSuccess());
+    yield put(removeTodosSuccess(payload));
   } catch (err) {
-    yield put(itemsTodoFailed(err));
+    yield put(removeTodosFailed(err));
   }
 }
 
@@ -97,5 +98,5 @@ export const todosWothesSaga = function* () {
   yield takeLatest(EDIT_TODO_REQUEST, editTodoWorker);
   yield takeLatest(REMOVE_TODO.REQUEST, removeTodoWorker);
   yield takeLatest(SELECT_TODO.REQUEST, selectTodoWorker);
-  yield takeLatest(ITEMS_TODO.REQUEST, itemsTodoWorker);
+  yield takeLatest(REMOVE_TODOS.REQUEST, removeTodosWorker);
 };

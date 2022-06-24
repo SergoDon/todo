@@ -1,8 +1,8 @@
 import { Todo } from ".";
 import { useEffect } from "react";
-import { fetchTodosRequest } from "../../../../../actions";
+import { fetchTodosRequest } from "@actions";
 import { useSelector, useDispatch } from "react-redux";
-import { getTodos } from "../../../../../todosSelectors";
+import { getTodos } from "@todosSelectors";
 
 export const Todos = () => {
   const dispatch = useDispatch();

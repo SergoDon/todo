@@ -8,7 +8,9 @@
             "@styles": ["src/styles/index.scss"],
             "@containers": ["src/containers/index"],
             "@constants": ["src/constants/index"],
-            "@routeConstants":["src/constants/routeConstants"]
+            "@routeConstants": ["src/constants/routeConstants"],
+            "@todosSelectors": ["src/todosSelectors"],
+            "@actions": ["src/actions"]
         }
     }
 }

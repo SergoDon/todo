@@ -2,7 +2,7 @@ import clnm from "./index.module.scss";
 import classname from "classname";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { editTodoRequest, removeTodoRequest, selectTodoRequest } from "../../../../../../../actions";
+import { editTodoRequest, removeTodoRequest, selectTodoRequest } from "@actions";
 
 export const Todo = ({ id, isCompleted, title }) => {
   const dispatch = useDispatch();
@@ -11,7 +11,7 @@ export const Todo = ({ id, isCompleted, title }) => {
   const toggleEdit = () => hendleEditTodo(!isEdit);
 
   const selectTodo = (id, isCompleted) => {
-    dispatch(selectTodoRequest({id, title, isCompleted}));
+    dispatch(selectTodoRequest({ id, title, isCompleted }));
   };
 
   const removeTodo = () => {

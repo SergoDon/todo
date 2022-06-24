@@ -14,6 +14,8 @@ import {
   REMOVE_TODO,
   SELECT_TODO,
   ITEMS_TODO,
+  REMOVE_TODOS,
+  FILTER_TODOS,
 } from "../constants";
 
 export const fetchTodosRequest = () => ({ type: FETCH_TODOS_REQUEST });
@@ -45,3 +47,10 @@ export const itemsTodoRequest = (payload) => ({ type: ITEMS_TODO.REQUEST, payloa
 export const itemsTodoFailed = (payload) => ({ type: ITEMS_TODO.FAILED, payload });
 export const itemsTodoSuccess = (payload) => ({ type: ITEMS_TODO.SUCCESS, payload });
 export const itemsTodoClear = () => ({ type: ITEMS_TODO.CLEAR });
+
+export const removeTodosRequest = (payload) => ({ type: REMOVE_TODOS.REQUEST, payload });
+export const removeTodosFailed = (payload) => ({ type: REMOVE_TODOS.FAILED, payload });
+export const removeTodosSuccess = (payload) => ({ type: REMOVE_TODOS.SUCCESS, payload });
+export const removeTodosClear = () => ({ type: REMOVE_TODOS.CLEAR });
+
+export const filterTodosSuccess = (payload) => ({ type: FILTER_TODOS.SUCCESS, payload });

@@ -1,20 +1,29 @@
 import clnm from "./index.module.scss";
 import classname from "classname";
-import { useDispatch } from "react-redux";
-import { itemsTodoRequest } from "../../../../../actions";
+import { useSelector, useDispatch } from "react-redux";
+import { getTodos, getTodosFilter } from "@todosSelectors";
+import { removeTodosRequest, filterTodosSuccess } from "@actions";
 
 export const TodosFilter = () => {
   const dispatch = useDispatch();
-  const removeTodos = () => {};
-  const setFilter = () => {};
-  const todoItems = () => {
-    dispatch( itemsTodoRequest("wйцыйц"));
-  }
-  const filter = null;
+  const todos = useSelector(getTodos());
+  const filter = useSelector(getTodosFilter());
+
+  const removeTodos = () => {
+    dispatch(removeTodosRequest(todos));
+  };
+
+  const setFilter = (payload) => {
+    dispatch(filterTodosSuccess(payload));
+  };
+
+  const todosOnRight = () => {
+    return todos.length > 1 ? `${todos.length} Items on right` : `${todos.length} Item on right`;
+  };
 
   return (
     <div className={clnm.conteiner}>
-       <div>{todoItems()}</div> 
+      <div>{todosOnRight()}</div>
       <div className={clnm.filter}>
         <div
           className={classname(clnm.filterItem, {
@@ -41,7 +50,7 @@ export const TodosFilter = () => {
           Completed
         </div>
       </div>
-      <div className={clnm.clearComleted} onClick={() => removeTodos("isCompleted", true)}>
+      <div className={clnm.clearComleted} onClick={() => removeTodos()}>
         Clear Comleted
       </div>
     </div>
