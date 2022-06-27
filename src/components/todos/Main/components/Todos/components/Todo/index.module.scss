@@ -11,17 +11,18 @@
   .checkBox {
     display: flex;
     align-items: center;
-    width: 43px;
+    width: 40px;
     height: 40px;
     background-image: url("../../../../../../../../pictures/checBox.png");
     cursor: pointer;
     appearance: none;
+  
   }
 
   .checkBoxOn {
     display: flex;
     align-items: center;
-    width: 43px;
+    width: 40px;
     height: 40px;
     background-image: url("../../../../../../../../pictures/checBoxOn.png");
     cursor: pointer;
@@ -51,7 +52,8 @@
   .todoTitle {
     display: flex;
     align-items: center;
-    width: 450px;
+    width: 70%;
+    max-width: 430px;
     padding: 5px 20px;
     border: none;
     @include font($font-family, "normal", 30px, 4px, 40px, $grey-dark-color);
@@ -60,7 +62,8 @@
   .todoTitleOn {
     display: flex;
     align-items: center;
-    width: 450px;
+    width: 70%;
+    max-width: 430px;
     padding: 5px 20px;
     text-decoration: line-through;
     border: none;
