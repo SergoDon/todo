@@ -18,7 +18,7 @@ export const TodosFilter = () => {
   };
 
   const todosOnRight = () => {
-    return todos.length > 1 ? `${todos.length} Items on right` : `${todos.length} Item on right`;
+    return todos.length > 1 ? `${todos.length} Items left` : `${todos.length} Item left`;
   };
 
   return (
