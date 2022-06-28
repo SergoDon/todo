@@ -68,7 +68,7 @@ export const reducerTodos = (state = initialState, action) => {
       return {
         ...state,
         commonSuccessState,
-        todos: payload.length ? payload.filter((element) => !element.isCompleted) : state.todos,
+        todos: payload.filter((element) => !element.isCompleted),
       };
     case FILTER_TODOS.SUCCESS:
       return { ...state, filter: payload };

@@ -52,7 +52,7 @@ export const TodosFilter = () => {
         </div>
       </div>
       <div className={clnm.clearComleted} onClick={() => removeTodos()}>
-        Clear Comleted
+        Clear Completed
       </div>
     </div>
   );
