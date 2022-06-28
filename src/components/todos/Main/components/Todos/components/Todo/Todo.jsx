@@ -34,14 +34,14 @@ export const Todo = ({ id, isCompleted, title }) => {
   };
 
   return !isEdit ? (
-    <div onClick={changeFildType} id={id} className={clnm.conteiner}>
+    <div id={id} className={clnm.conteiner}>
       <input
         className={classname(clnm.checkBox, { [clnm.checkBoxOn]: isCompleted })}
         type="checkbox"
         checked={isCompleted}
         onChange={() => selectTodo(id, !isCompleted)}
       ></input>
-      <div
+      <div onClick={changeFildType} 
         className={classname(clnm.todoTitle, {
           [clnm.todoTitleOn]: isCompleted,
         })}
@@ -54,12 +54,12 @@ export const Todo = ({ id, isCompleted, title }) => {
     </div>
   ) : (
     <input
-      onBlur={(event) => save(event, true)}
-      autoFocus
-      className={clnm.todoTitleInput}
-      onChange={onChange}
-      onKeyDown={save}
-      value={curentTitle}
+        onBlur={(event) => save(event, true)}
+        autoFocus
+        className={clnm.todoTitleInput}
+        onChange={onChange}
+        onKeyDown={save}
+        value={curentTitle}
     />
   );
 };

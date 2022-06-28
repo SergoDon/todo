@@ -9,6 +9,10 @@
   padding: 10px 20px 0;
   font-weight: 600;
   @include font($font-family, "normal", 12px, 4px, 40px, $grey-dark-color);
+  @media screen and (max-width: 870px){
+    font-size: 10px;
+    padding: 0px 10px 0;
+  }
 
   .filter {
     display: flex;
