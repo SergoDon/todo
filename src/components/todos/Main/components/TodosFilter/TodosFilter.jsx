@@ -1,20 +1,21 @@
 import clnm from "./index.module.scss";
 import classname from "classname";
 import { useSelector, useDispatch } from "react-redux";
-import { getTodos, getTodosFilter } from "@todosSelectors";
+import { getFilteredTodos, getTodosFilter, getTodosAll } from "@todosSelectors";
 import { removeTodosRequest, filterTodosSuccess } from "@actions";
 
 export const TodosFilter = () => {
   const dispatch = useDispatch();
-  const todos = useSelector(getTodos());
+  const todos = useSelector(getFilteredTodos());
   const filter = useSelector(getTodosFilter());
+  const todosAll = useSelector(getTodosAll());
 
   const removeTodos = () => {
-    dispatch(removeTodosRequest(todos));
+    dispatch(removeTodosRequest(todosAll));
   };
 
-  const setFilter = (payload) => {
-    dispatch(filterTodosSuccess(payload));
+  const setFilter = (todos) => {
+    dispatch(filterTodosSuccess(todos));
   };
 
   const todosOnRight = () => {

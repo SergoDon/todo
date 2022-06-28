@@ -4,7 +4,7 @@ const selectTodosState = (state) => state.reducerTodos;
 
 export const getTodosFilter = () => createSelector(selectTodosState, (state) => state.filter);
 
-export const getTodos = () =>
+export const getFilteredTodos = () =>
   createSelector(selectTodosState, (state) => {
     const { filter, todos } = state;
 
@@ -15,3 +15,5 @@ export const getTodos = () =>
       return [...todos].filter((el) => el[key] === value);
     }
   });
+
+export const getTodosAll = () => createSelector(selectTodosState, (state) => state.todos);

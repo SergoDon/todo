@@ -2,7 +2,7 @@ import { Todo } from ".";
 import { useEffect } from "react";
 import { fetchTodosRequest } from "@actions";
 import { useSelector, useDispatch } from "react-redux";
-import { getTodos } from "@todosSelectors";
+import { getFilteredTodos } from "@todosSelectors";
 
 export const Todos = () => {
   const dispatch = useDispatch();
@@ -11,8 +11,7 @@ export const Todos = () => {
     dispatch(fetchTodosRequest());
   }, [dispatch]);
 
-  const todos = useSelector(getTodos());
-
+  const todos = useSelector(getFilteredTodos());
   return (
     <div>
       {todos.map((todo) => (

@@ -41,7 +41,8 @@ export const Todo = ({ id, isCompleted, title }) => {
         checked={isCompleted}
         onChange={() => selectTodo(id, !isCompleted)}
       ></input>
-      <div onClick={changeFildType} 
+      <div
+        onClick={changeFildType}
         className={classname(clnm.todoTitle, {
           [clnm.todoTitleOn]: isCompleted,
         })}
@@ -54,12 +55,12 @@ export const Todo = ({ id, isCompleted, title }) => {
     </div>
   ) : (
     <input
-        onBlur={(event) => save(event, true)}
-        autoFocus
-        className={clnm.todoTitleInput}
-        onChange={onChange}
-        onKeyDown={save}
-        value={curentTitle}
+      onBlur={(event) => save(event, true)}
+      autoFocus
+      className={clnm.todoTitleInput}
+      onChange={onChange}
+      onKeyDown={save}
+      value={curentTitle}
     />
   );
 };
